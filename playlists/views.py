@@ -23,7 +23,7 @@ def user_playlists_view(request, user_id):
     response = requests.get(url, headers=headers, params=params)
     user_playlists = json.loads(response.text)
 
-    return render(request, 'user_playlists_view.html', {'data': user_playlists,'user_id': user_id})
+    return render(request, 'playlists/user_playlists_view.html', {'data': user_playlists,'user_id': user_id})
 
 def single_playlist_view(request, user_id, playlist_id):
     # f = open("response2.txt", "r")
@@ -45,7 +45,7 @@ def single_playlist_view(request, user_id, playlist_id):
     playlist_data = json.loads(response.text)
 
 
-    return render(request, 'single_playlist_view.html', {'data': playlist_data})
+    return render(request, 'playlists/single_playlist_view.html', {'data': playlist_data})
 
 def yt_search(request, song_info):
     return JsonResponse( {'video_id': YoutubeHandler().youtubesearchpython(song_info)} )
