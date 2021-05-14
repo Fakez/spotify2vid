@@ -1,0 +1,28 @@
+{% extends 'base_layout.html' %} 
+
+{% load utils %}
+{% load static %}
+
+{% block content %}
+
+<h2>Playlist's details</h2>
+
+<button style="margin-bottom:10px;display:block;" onclick="runYt()">GO</button>
+<div id='playslist_data_container'>
+    {% for item in data.items %}
+        <div class='song-row'>
+            <img src='{{item.track.album.images.1.url}}'></img>
+            <span class='track-name'>{{item.track.name}}</span> 
+            <span>|</span> 
+            <span>{{item.track.album.name}}</span> 
+            <span>|</span>
+            <span class='artist-name'>{% format_artists_to_string item.track.artists %}</span> 
+            <span>|</span>
+            <span>{% format_milliseconds_to_minute_format item.track.duration_ms %}</span> 
+        </div>
+    {%endfor%}
+</div>
+
+<script src="{% static 'js/playlist-js.js' %}"></script>
+
+{% endblock %}

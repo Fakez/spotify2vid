@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %} 
+
+{% load utils %}
+
+{% block content %}
+<h2>{{user_id}}'s playlists</h2>
+<div>
+    {% for playlist in data.items %}
+        <img src='{{playlist.images.0.url}}'></img>
+        <a href='{{user_id}}/{{playlist.id}}'>{{playlist.name}}</a> |
+        <span>Tracks: {{playlist.tracks.total}}</span>
+        <br>
+    {% endfor %}
+</div>
+{% endblock %}

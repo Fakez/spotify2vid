@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %} 
+
+{% load utils %}
+
+{% block content %}
+<form class="site-form" action="" method="post">
+    {% csrf_token %}
+    <p>Enter your Spotify username:</p>
+    <input type="text" name="username" value='fakeeeeez'>
+    <input type="submit" value="Submit">
+
+</form>
+{% endblock %}
