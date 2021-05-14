@@ -19,7 +19,9 @@ from .classes.EnvVarsHandler import EnvVarsHandler
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+#BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -86,7 +88,8 @@ WSGI_APPLICATION = 'spotify2vid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME':os.path.join(BASE_DIR, 'db.sqlite3')
+        #'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -129,16 +132,21 @@ USE_TZ = True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 
+#STATIC_URL = '/static/'
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'assets'),
+#)
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
-)
-STATIC_ROOT = BASE_DIR / 'assets'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 # Default primary key field type
@@ -146,4 +154,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
