@@ -80,7 +80,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'spotify2vid.wsgi.application'
-SECURE_REFERRER_POLICY = 'same-origin'
+SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
