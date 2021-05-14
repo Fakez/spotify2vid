@@ -31,7 +31,7 @@ SECRET_KEY = EnvVarsHandler().get_env_var('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['spotify2vid.herokuapp.com']
 
 
 # Application definition
