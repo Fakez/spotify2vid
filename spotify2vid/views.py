@@ -1,7 +1,6 @@
 import json
 import requests
 from django.shortcuts import render, redirect
-from spotify2vid.classes.SpotifyAuthorizationHandler import SpotifyAuthorizationHandler
 
 
 def home(request):
