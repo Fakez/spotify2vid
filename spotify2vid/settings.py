@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = EnvVarsHandler().get_env_var('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['spotify2vid.herokuapp.com']
 
@@ -136,7 +136,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'assets'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
