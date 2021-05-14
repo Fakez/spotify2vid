@@ -5,7 +5,6 @@ from django.http import JsonResponse
 
 from spotify2vid.classes.SpotifyAuthorizationHandler import SpotifyAuthorizationHandler
 from spotify2vid.classes.YoutubeHandler import YoutubeHandler
-from lib.templatetags.utils import format_artists_to_string
 
 
 def user_playlists_view(request, user_id):
